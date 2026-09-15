@@ -4,4 +4,4 @@
 </div>
 
 ## 📅News
-* **` Sep. 14th, 2026`:** We created this repository alongside the arXiv submission of our paper.
+* **` Sep. 14th, 2026`:** We created this repository alongside the [arXiv](https://arxiv.org/abs/2609.15189) submission of our paper.
