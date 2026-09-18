@@ -1,0 +1,40 @@
+defaults:
+  - common
+  - _self_
+
+datasets:
+  - name: ssv2
+    root: ${paths.data_root}/ssv2
+    ratio: 1.0  
+    frames_root: ${paths.data_root}/ssv2/frames
+    window_mode: uniform
+    train_sample_downsample_rate: 1
+    val_sample_downsample_rate: 10
+    manifest_splits: [train, validation, test]
+  - name: rt1
+    root: ${paths.data_root}/rt1
+    ratio: 1.0
+    frames_root: ${paths.data_root}/rt1/frames/fractal20220817_data
+    window_mode: contiguous
+    frame_skip: 2 
+    camera_key: image
+    val_ratio: 0.1
+    sample_downsample_rate: 1
+  - name: recon
+    root: ${paths.data_root}/recon
+    ratio: 1.0
+    frames_root: ${paths.data_root}/recon/frames
+    split_dir: ${paths.data_root}/recon/splits
+    window_mode: recon 
+    include_pose: false
+    min_dist_cat: 3
+    max_dist_cat: 10
+    traj_stride: 1
+  - name: loopnav
+    root: ${paths.data_root}/loopnav
+    ratio: 1.0
+    frames_root: ${paths.data_root}/loopnav/frames
+    window_mode: contiguous
+    window_stride: ${data.seq_len}
+    split_ratio: 0.8
+    manifest_splits: [train, validation]

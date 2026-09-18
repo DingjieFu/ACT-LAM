@@ -1,0 +1,5 @@
+paths:
+  data_root: ${oc.env:ACTLAM_DATA_ROOT,/root/dingjiefu/ACT_LAM/datasets}
+  model_root: ${oc.env:ACTLAM_MODEL_ROOT,/root/dingjiefu/ACT_LAM/models}
+  experiment_root: ${oc.env:ACTLAM_EXPERIMENT_ROOT,/root/dingjiefu/ACT_LAM/experiments/ACT_LAM}
+  tools_root: ${oc.env:ACTLAM_TOOLS_ROOT,/root/dingjiefu/ACT_LAM/tools}

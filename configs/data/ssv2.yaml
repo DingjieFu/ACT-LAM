@@ -1,0 +1,14 @@
+
+defaults:
+  - common
+  - _self_
+
+datasets:
+  - name: ssv2
+    root: ${paths.data_root}/ssv2
+    ratio: 1.0 
+    frames_root: ${paths.data_root}/ssv2/frames
+    window_mode: uniform
+    train_sample_downsample_rate: 1
+    val_sample_downsample_rate: 10
+    manifest_splits: [train, validation, test]

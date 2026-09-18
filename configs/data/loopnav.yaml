@@ -1,0 +1,13 @@
+defaults:
+  - common
+  - _self_
+
+datasets:
+  - name: loopnav
+    root: ${paths.data_root}/loopnav
+    ratio: 1.0  
+    frames_root: ${paths.data_root}/loopnav/frames
+    window_mode: contiguous  
+    window_stride: ${data.seq_len}
+    split_ratio: 0.8
+    manifest_splits: [train, validation]

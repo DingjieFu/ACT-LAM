@@ -1,0 +1,11 @@
+_target_: actlam.models.encoders.dinov2.RAE
+config:
+  _target_: actlam.models.encoders.dinov2.RAEEncoderConfig
+  encoder_config_path: facebook/dinov2-with-registers-base
+  model_cache_dir: ${paths.model_root}/huggingface
+  normalization_stat_path: ${paths.model_root}/rae/stats/dinov2/wReg_base/imagenet1k/stat.pt
+  allow_asset_download: true
+  revision: null
+  encoder_input_size: 224
+  noise_tau: 0.0
+  reshape_to_2d: true

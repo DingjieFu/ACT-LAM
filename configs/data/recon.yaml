@@ -1,0 +1,16 @@
+defaults:
+  - common
+  - _self_
+
+datasets:
+  - name: recon
+    root: ${paths.data_root}/recon
+    ratio: 1.0  
+    frames_root: ${paths.data_root}/recon/frames
+    split_dir: ${paths.data_root}/recon/splits
+    window_mode: recon  
+    include_pose: false
+    manifest_splits: [train, validation]
+    min_dist_cat: 3
+    max_dist_cat: 10
+    traj_stride: 1

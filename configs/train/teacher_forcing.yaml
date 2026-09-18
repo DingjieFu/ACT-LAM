@@ -1,0 +1,13 @@
+defaults:
+  - /train/common
+  - _self_
+
+task: teacher_forcing
+
+training:
+  stage: teacher_forcing
+  selection_metric: loss
+  max_steps: 30000
+  val_every_steps: 5000
+  checkpoint_every_steps: 5000
+  periodic_checkpoint_every_steps: 10000

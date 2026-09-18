@@ -1,0 +1,28 @@
+defaults:
+  - /base
+  - /data: mixed
+  - /models/encoder@encoder: dinov2
+  - /models/decoders@decoder: rae_dinov2
+  - /models/lam@model: dila
+  - _self_
+
+training:
+  precision: fp32
+  global_batch_size: 16
+  gradient_clip_norm: 1.0
+  log_every_steps: 20
+  val_batches: 20
+  resume_from: null
+  init_from: null
+  visualization:
+    enabled: false
+    max_samples: 4
+    save_local: true
+    log_wandb: false
+  optimizer:
+    name: adamw
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-5
+  scheduler:
+    name: constant
+    warmup_steps: 0

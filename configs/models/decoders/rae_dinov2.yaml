@@ -1,0 +1,17 @@
+_target_: actlam.models.decoders.rae_decoder.RAEDecoder
+
+feature_dim: 768
+encoder_config_path: facebook/dinov2-with-registers-base
+encoder_input_size: 224
+encoder_patch_size: 14
+decoder_config_path: configs/models/decoders/ViTXL
+decoder_patch_size: 16
+
+
+pretrained_decoder_path: null
+require_pretrained: true
+decoder_cache_dir: ${paths.model_root}/rae
+
+normalization_stat_path: ${paths.model_root}/rae/stats/dinov2/wReg_base/imagenet1k/stat.pt
+model_cache_dir: ${paths.model_root}/huggingface
+allow_asset_download: true

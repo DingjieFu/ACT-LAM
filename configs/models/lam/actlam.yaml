@@ -1,0 +1,66 @@
+name: actlam
+
+training:
+  supported_stages: [teacher_forcing, rollout_finetune]
+
+params:
+  embedding_dim: 768
+  spatial_size: 16
+  action_dim: 256
+  structure_dim: 128
+  precision: fp32
+
+  state_adapter:
+    enabled: true
+    state_dim: 128
+    hidden_dim: 384
+    depth: 3
+
+  idm:
+    type: action_query
+    input_dim: 128
+    hidden_dim: 384
+    num_queries: 8
+    num_heads: 8
+    local_conv_depth: 3
+    query_mixer_layers: 2
+    temporal_mixer_layers: 2
+    temporal_context_radius: 1
+    dropout: 0.1
+
+  fdm:
+    type: action_token_st
+    state_dim: 128
+    hidden_dim: 384
+    depth: 4
+    num_heads: 8
+    dim_head: 48
+    ffn_multiplier: 4
+    dropout: 0.1
+    attention_dropout: 0.1
+    action_token: true
+    action_conditioning: true
+    action_gate_init: -1.0
+    max_sequence_length: 64
+    activation_checkpointing: false
+
+  reference:
+    mode: initial_frame
+    length: 1
+
+  decoder:
+    type: initial_frame_fusion
+    hidden_dim: 768
+    structure_hidden_dim: 768
+    structure_depth: 2
+    fusion_layers: 2
+    num_heads: 8
+    dropout: 0.1
+
+  loss_weights:
+    sensory_gen: 2.0
+    grid: 0.05
+    action: 0.05
+    l2: 0.0001
+    symmetry: 0.001
+    action_variance: 0.01

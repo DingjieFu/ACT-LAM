@@ -1,0 +1,20 @@
+
+defaults:
+  - common
+  - _self_
+
+preparation:
+  workers: 1
+  splits: [train]
+
+datasets:
+  - name: rt1
+    root: ${paths.data_root}/rt1
+    ratio: 1.0  
+    frames_root: ${paths.data_root}/rt1/frames/fractal20220817_data
+    window_mode: contiguous  
+    frame_skip: 2  
+    camera_key: image
+    manifest_splits: [train, validation]
+    val_ratio: 0.1
+    sample_downsample_rate: 1
