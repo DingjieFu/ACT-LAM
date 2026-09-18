@@ -1,0 +1,17 @@
+.DS_Store
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Hydra and experiment outputs
+.hydra/
+outputs/
+experiments/
+*.log
+
+# Local datasets and downloaded model assets
+models/huggingface/
+models/rae/
+models/torch/
